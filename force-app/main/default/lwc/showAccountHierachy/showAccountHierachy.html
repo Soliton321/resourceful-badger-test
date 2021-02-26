@@ -1,0 +1,40 @@
+<template>
+  <lightning-card title="show Dummy Data">
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+      <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+        Tree Grid component with data from a static source. Click on the arrow
+        icons to expand or collapse a branch.
+      </h2>
+
+      <!-- Simple -->
+      <div class="slds-p-around_medium lgc-bg">
+        <lightning-tree-grid
+          columns={gridColumns}
+          data={gridData}
+          key-field="name"
+        ></lightning-tree-grid>
+      </div>
+    </div>
+  </lightning-card>
+
+  <lightning-card title="display N Level hierarchy into 2 Level parent children"
+    ><lightning-layout horizontal-align="center" multiple-rows>
+      <template if:true={parentChildrenPairs.data}>
+        <lightning-layout horizontal-align="center" multiple-rows>
+          <template for:each={parentChildrenPairs.data} for:item="acc">
+            <lightning-layout-item
+              key={acc.Id}
+              padding="around-small"
+              size="12"
+              small-device-size="6"
+              medium-device-size="4"
+              large-device-size="3"
+            >
+              {acc}
+            </lightning-layout-item>
+          </template>
+        </lightning-layout>
+      </template></lightning-layout
+    >
+  </lightning-card>
+</template>
